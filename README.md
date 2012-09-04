@@ -1,4 +1,4 @@
-#HTML/CSS 风格指南#
+#Google HTML/CSS 风格指南#
 
 版本：0.1
 
@@ -7,18 +7,10 @@
 翻译：Romoo Chen ([Twitter](https://twitter.com/romoo))
 
 译文状态：草稿
-
-##Important Note##
-
-###Displaying Hidden Details in this Guide###
-
-**This style guide contains many details that are initially hidden from view. They are marked by the triangle icon, which you see here on your left. Click it now.You should see “Hooray” appear below.**
-        
-Hooray! Now you know you can expand points to get more details. Alternatively, there’s a “toggle all” at thetop of this document.
   
-##Background##
+##前言##
       
-This document defines formatting and style rules for HTML and CSS. It aims at improving collaboration, code quality, and enabling supporting infrastructure. It applies to raw, working files that use HTML and CSS, including GSS files. Tools are free to obfuscate, minify, and compile as long as the general code quality is maintained.
+本文定义了 HTML 和 CSS 的格式和样式规则，旨在改善代码协作编码、代码质量和规范基本结构。它适用于使用 HTML 和 CSS 的源文件，也包括 GSS 文件。该文档可免费用于混淆、压缩和编译代码的工具，同时保持通用代码质量。
 
 ##通用样式规则##
 
@@ -26,14 +18,16 @@ This document defines formatting and style rules for HTML and CSS. It aims at im
 
 **省略嵌入资源的协议。**
 
-Omit the protocol portion (`http:`, `https:`) from URLs pointing to images and other media files, style sheets, and scripts unless the respective files are not available over both protocols.
+在引用样式表文件、脚本文件、图片以及其他媒体文件时忽略协议部分（`http:`，`https:`），除非使用这两种协议都无法获取到该资源。
 
-Omitting the protocol—which makes the URLrelative—prevents mixed content issues and results in minor file size savings.
+省略协议可以避免相对 URL 产生的问题，也可以减少文件的体积。
 
     <!-- 不推荐 -->
     <script src="http://www.google.com/js/gweb/analytics/autotrack.js"></script>
+
     <!-- 推荐 -->
     <script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
+    
     /* 不推荐 */
     .example {
       background: url(http://www.google.com/images/example);
@@ -604,3 +598,4 @@ If you’re editing code, take a few minutes to look at the code around you and 
 The point of having style guidelines is to have a common vocabulary of coding so people can concentrate on what you’re saying rather than on how you’re saying it. We present global style rules here so people know the vocabulary, but local style is also important. If code you add to a file looks drastically different from the existing code around it, it throws readers out of their rhythm when they go to read it. Avoid this.
 
 Revision 2.2
+
