@@ -7,9 +7,9 @@
 翻译：Romoo Chen ([Twitter](https://twitter.com/romoo))
 
 译文状态：草稿
-  
+
 ##前言##
-      
+
 本文定义了 HTML 和 CSS 的格式和样式规则，旨在改善代码协作编码、代码质量和规范基本结构。它适用于使用 HTML 和 CSS 的源文件，也包括 GSS 文件。该文档可免费用于混淆、压缩和编译代码的工具，同时保持通用代码质量。
 
 ##通用样式规则##
@@ -36,10 +36,10 @@
 ##通用格式化规则##
 
 ###缩进###
-      
+
 **使用两个空格。**
       
-不要使用 tab 或者混用 tab 加空格的方式作为缩进。
+不要使用 tab 或者混用 tab 和空格的方式作为缩进。
 
     <ul>
       <li>Fantastic
@@ -50,10 +50,10 @@
     }
 
 ###大小写###
-      
+
 **只使用小写。**
-      
-All code has to be lowercase: This applies to element names, attributes, attribute values (unless text/CDATA), selectors, properties, and property values (with the exception of strings).
+
+所有代码只使用小写：包括标签、选择器、属性及属性值（text/`CDATA` 例外，作为内容时例外）。
 
     <!-- 不推荐 -->
     <A HREF="/">Home</A>
@@ -61,11 +61,11 @@ All code has to be lowercase: This applies to element names, attributes, attribu
     <!-- 推荐 -->
     <img src="google.png" alt="Google">
 
-###尾随空格###
-      
-**Remove trailing white spaces.**
-      
-Trailing white spaces are unnecessary and can complicate diffs.
+###尾部空格###
+
+**删除多余的尾部空格**
+
+尾部空格是多余的，可能会引起代码混乱。
 
     <!-- 不推荐 -->
     <p>What?_
@@ -75,7 +75,7 @@ Trailing white spaces are unnecessary and can complicate diffs.
 ##通用 Meta 规则##
 
 ###编码###
-      
+
 **使用 UTF-8 (no BOM) 编码。**
       
 Make sure your editor uses UTF-8 as character encoding, without a byte order mark.
