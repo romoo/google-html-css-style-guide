@@ -1,6 +1,6 @@
 #Google HTML/CSS 风格指南#
 
-版本：0.1
+版本：0.2
 
 英文版：[http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml)
 
@@ -16,7 +16,7 @@
 
 ###协议###
 
-**省略嵌入资源的协议。**
+**省略嵌入资源的协议**
 
 在引用样式表文件、脚本文件、图片以及其他媒体文件时忽略协议部分（`http:`，`https:`），除非使用这两种协议都无法获取到该资源。
 
@@ -37,7 +37,7 @@
 
 ###缩进###
 
-**使用两个空格。**
+**使用两个空格**
       
 不要使用 tab 或者混用 tab 和空格的方式作为缩进。
 
@@ -51,7 +51,7 @@
 
 ###大小写###
 
-**只使用小写。**
+**只使用小写**
 
 所有代码只使用小写：包括标签、选择器、属性及属性值（text/`CDATA` 例外，作为内容时例外）。
 
@@ -69,6 +69,7 @@
 
     <!-- 不推荐 -->
     <p>What?_
+
     <!-- 推荐 -->
     <p>Yes please.
 
@@ -77,30 +78,30 @@
 ###编码###
 
 **使用 UTF-8 (no BOM) 编码。**
-      
-Make sure your editor uses UTF-8 as character encoding, without a byte order mark.
 
-Specify the encoding in HTML templates and documents via `<meta charset="utf-8">`. Do not specify the encoding of style sheets as these assume UTF-8.
+确保你的编辑器文档编码为 UTF-8，没有字节顺序标记。
 
-(More on encodings and when and how to specify them can be found in [Character Sets &amp; Encodings in XHTML, HTML and CSS](http://www.w3.org/International/tutorials/tutorial-char-enc/en/all.html)
+在 HTML 中使用 `<meta charset="utf-8">` 置顶文档编码，在 CSS 中默认就是 UTF-8 编码，不需要特别指定。
+
+（更多编码和指定方式的资料可以参见[Character Sets & Encodings in XHTML, HTML and CSS](http://www.w3.org/International/tutorials/tutorial-char-enc/en/all.html)）
 
 ###注释###
-      
-**Explain code as needed, where possible.**
-      
-Use comments to explain code: What does it cover, what purpose does it serve, why is respective solution used or preferred?
 
-(This item is optional as it is not deemed a realistic expectation to always demand fully documented code. Mileage may vary heavily for HTML and CSS code and depends on the project’s complexity.)
+**根据需要，给代码做注释。**
+
+用注释解释代码：它实现了什么功能，它的目的是什么，为什么这种方案更好？
+
+（注释代码不是强制要求，视乎项目性质和复杂程度）
 
 ###待办事项###
-      
-**Mark todos and action items with `TODO`.**
-      
-Highlight todos by using the keyword `TODO` only, not other common formats like `@@`.
 
-Append a contact (username or mailing list) in parentheses as with the format `TODO(contact)`.
+**使用 `TODO` 关键词标识待办事项**
 
-Append action items after a colon as in `TODO: action item`.
+只使用 `TODO` 关键词标识待办事项，而不用 `@@` 等其他格式。
+
+使用  `TODO(contact)` 的形式附上联系方式（用户名和邮件列表）方便联系。
+
+在冒号后加入待办事项内容，如  `TODO: action item` 。
         
     {# TODO(john.doe): revisit centering #}
     <center>Test</center>
@@ -113,7 +114,7 @@ Append action items after a colon as in `TODO: action item`.
 ##HTML 风格规则##
 
 ###文档类型###
-      
+
 **使用 HTML5。**
       
 HTML5 (HTML syntax) is preferred for all HTML documents: `<!DOCTYPE html>`.
