@@ -77,7 +77,7 @@
 
 ###编码###
 
-**使用 UTF-8 (no BOM) 编码。**
+**使用 UTF-8 (no BOM) 编码**
 
 确保你的编辑器文档编码为 UTF-8，没有字节顺序标记。
 
@@ -87,7 +87,7 @@
 
 ###注释###
 
-**根据需要，给代码做注释。**
+**根据需要，给代码做注释**
 
 用注释解释代码：它实现了什么功能，它的目的是什么，为什么这种方案更好？
 
@@ -115,21 +115,21 @@
 
 ###文档类型###
 
-**使用 HTML5。**
-      
-HTML5 (HTML syntax) is preferred for all HTML documents: `<!DOCTYPE html>`.
+**使用 HTML5**
 
-(It’s recommended to use HTML, as `text/html`. Do not use XHTML. XHTML, as [`application/xhtml+xml`](http://hixie.ch/advocacy/xhtml), lacks both browser and infrastructure support and offers less room for optimization than HTML.)
+HTML5 推荐所有 HTML 文档使用 `<!DOCTYPE html>`。
 
-Although fine with HTML, do not close void elements, i.e. write `<br>`, not `<br />`.
+（由于缺少浏览器基础支持，优化空间比 HTML 小。推荐使用文档类型为 `text/html` 的 HTML，而非文档类型为 [`application/xhtml+xml`](http://hixie.ch/advocacy/xhtml) 的 XHTML。）
 
-###HTML validity###
-      
-**Use valid HTML where possible.**
+不要闭合空标签，例如：要 `<br>`，而非 `<br />`，尽管对于 HTML 两者都可以。
+
+###HTML 校验###
+
+**使用经校验的 HTML 代码**
       
 Use valid HTML code unless that is not possible due to otherwise unattainable performance goals regarding file size.
 
-Use tools such as the [W3C HTML validator](http://validator.w3.org/nu/) to test.
+使用 [W3C HTML validator](http://validator.w3.org/nu/) 等工具去校验代码。
 
 Using valid HTML is a measurable baseline quality attribute that contributes to learning about technical requirements and constraints, and that ensures proper HTML usage.
 
@@ -144,30 +144,32 @@ Using valid HTML is a measurable baseline quality attribute that contributes to 
     <article>This is only a test.</article>
 
 ###语义化###
-      
-**Use HTML according to its purpose.**
-      
-Use elements (sometimes incorrectly called “tags”) for what they have been created for. For example, use heading elements for headings, `p` elements for paragraphs, `a` elements for anchors, etc.
 
-Using HTML according to its purpose is important for accessibility, reuse, and code efficiency reasons.
-        
+**使用 HTML 要符合语义**
+
+符合本义地使用元素（标签），比如在头部区域使用 heading 元素，使用 `p` 标签表示段落，使用 `a` 标签表示链接等。
+
+语义化地使用 HTML 有助于网页的可访问性，复用性和提高代码效率。
+
     <!-- 不推荐 -->
     <div onclick="goToRecommendations();">All recommendations</div>
+
     <!-- 推荐 -->
     <a href="recommendations/">All recommendations</a>
 
-###Multimedia fallback###
-      
+###多媒体备选内容###
+
 **Provide alternative contents for multimedia.**
-      
+
 For multimedia, such as images, videos, animated objects via `canvas`, make sure to offer alternative access. For images that means use of meaningful alternative text (`alt`) and for video and audio transcripts and captions, if available.
 
 Providing alternative contents is important for accessibility reasons: A blind user has few cues to tell what an image is about without `@alt`, and other users may have no way of understanding what video or audio contents are about either.
 
 (For images whose `alt` attributes would introduce redundancy, and for images whose purpose is purely decorative which you cannot immediately use CSS for, use no alternative text, as in `alt=""`.)
-        
+
     <!-- 不推荐 -->
     <img src="spreadsheet.png">
+
     <!-- 推荐 -->
     <img src="spreadsheet.png" alt="Spreadsheet screenshot.">
 
@@ -190,39 +192,38 @@ Separating structure from presentation from behavior is important for maintenanc
     <link rel="stylesheet" href="grid.css" media="screen">
     <link rel="stylesheet" href="print.css" media="print">
     <h1 style="font-size: 1em;">HTML sucks</h1>
-    <p>I’ve read about this on a few sites but now I’m sure:
-      <u>HTML is stupid!!1</u>
-    <center>I can’t believe there’s no way to control the styling of
-      my website without doing everything all over again!</center>
+    <p>I’ve read about this on a few sites but now I’m sure: <u>HTML is stupid!!1</u>
+    <center>I can’t believe there’s no way to control the styling of my website without doing everything all over again!</center>
+
     <!-- 推荐 -->
     <!DOCTYPE html>
     <title>My first CSS-only redesign</title>
     <link rel="stylesheet" href="default.css">
     <h1>My first CSS-only redesign</h1>
-    <p>I’ve read about this on a few sites but today I’m actually
-      doing it: separating concerns and avoiding anything in the HTML of
-      my website that is presentational.
+    <p>I’ve read about this on a few sites but today I’m actually doing it: separating concerns and avoiding anything in the HTML of my website that is presentational.
     <p>It’s awesome!
 
-###Entity references###
-      
+###转义符###
+
 **Do not use entity references.**
-      
+
 There is no need to use entity references like `&amp;mdash;`, `&amp;rdquo;`, or `&amp;#x263a;`, assuming the same encoding (UTF-8) is used for files and editors as well as among teams.
 
 The only exceptions apply to characters with special meaning in HTML (like `<` and `&amp;`) as well as control or “invisible” characters (like no-break spaces).
 
     <!-- 不推荐 -->
     The currency symbol for the Euro is &amp;ldquo;&amp;eur;&amp;rdquo;.
+
     <!-- 推荐 -->
     The currency symbol for the Euro is “€”.
 
-###Optional tags###
-      
-**Omit optional tags (optional).**
-      
-For file size optimization and scannability purposes, consider omitting optional tags. The [HTML5 specification](http://www.whatwg.org/specs/web-apps/current-work/multipage/syntax.html#syntax-tag-omission) defines what tags can be omitted.
+###可选标签###
 
+**省略可选标签（可选）**
+
+为了代码文件的体积和可读性，可以考虑省略可选的标签。[HTML5 specification](http://www.whatwg.org/specs/web-apps/current-work/multipage/syntax.html#syntax-tag-omission) 定义了哪些标签是可以被省略的。
+
+（由于。。。）
 (This approach may require a grace period to be established as a wider guideline as it’s significantly different from what web developers are typically taught. For consistency and simplicity reasons it’s best served omitting all optional tags, not just a selection.)
 
     <!-- 不推荐 -->
@@ -235,27 +236,31 @@ For file size optimization and scannability purposes, consider omitting optional
         <p>Sic.</p>
       </body>
     </html>
+
     <!-- 推荐 -->
     <!DOCTYPE html>
     <title>Saving money, saving bytes</title>
     <p>Qed.
     
-###type attributes###
-      
-**Omit `type` attributes for style sheets and scripts.**
-      
-Do not use `type` attributes for style sheets (unless not using CSS) and scripts (unless not using JavaScript).
+###引用类型###
 
-Specifying `type` attributes in these contexts is not necessary as HTML5 implies [`text/css`](http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#attr-style-type) and [`text/javascript`](http://www.whatwg.org/specs/web-apps/current-work/multipage/scripting-1.html#attr-script-type) as defaults. This can be safely done even for older browsers.
+**在 style 和 scitpt 标签中省略 `type` 属性**
+
+不要在 style 和 scitpt 标签中省略 `type` 属性（除非标签中引用的不是 CSS 或者 JavaScript），
+
+HTML5 默认使用 [`text/css`](http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#attr-style-type) 和 [`text/javascript`](http://www.whatwg.org/specs/web-apps/current-work/multipage/scripting-1.html#attr-script-type)，因此声明引用类型是不必要的，对于较老的浏览器也同样适用。
 
     <!-- 不推荐 -->
     <link rel="stylesheet" href="//www.google.com/css/maia.css"
       type="text/css">
+
     <!-- 推荐 -->
     <link rel="stylesheet" href="//www.google.com/css/maia.css">
+
     <!-- 不推荐 -->
     <script src="//www.google.com/js/gweb/analytics/autotrack.js"
       type="text/javascript"></script>
+
     <!-- 推荐 -->
     <script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
 
