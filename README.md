@@ -126,12 +126,12 @@ HTML5 推荐所有 HTML 文档使用 `<!DOCTYPE html>`。
 ###HTML 校验###
 
 **使用经校验的 HTML 代码**
-      
-Use valid HTML code unless that is not possible due to otherwise unattainable performance goals regarding file size.
+
+使用经校验的 HTML 代码，否则很难达到性能上的提升。
 
 使用 [W3C HTML validator](http://validator.w3.org/nu/) 等工具去校验代码。
 
-Using valid HTML is a measurable baseline quality attribute that contributes to learning about technical requirements and constraints, and that ensures proper HTML usage.
+HTML 代码有效性是重要的质量衡量标准，并可确保 HTML 代码可以正确使用。
 
     <!-- 不推荐 -->
     <title>Test</title>
@@ -159,13 +159,13 @@ Using valid HTML is a measurable baseline quality attribute that contributes to 
 
 ###多媒体备选内容###
 
-**Provide alternative contents for multimedia.**
+**为多媒体提供备选内容**
 
-For multimedia, such as images, videos, animated objects via `canvas`, make sure to offer alternative access. For images that means use of meaningful alternative text (`alt`) and for video and audio transcripts and captions, if available.
+对于多媒体，如图像，视频，通过 `canvas` 读取的动画元素，确保提供备选方案。对于图像使用有意义的备选文案（ `alt` ）对于视频和音频使用有效的副本和文案说明。
 
-Providing alternative contents is important for accessibility reasons: A blind user has few cues to tell what an image is about without `@alt`, and other users may have no way of understanding what video or audio contents are about either.
+提供备选内容在网页可访问性上是很重要的：给盲人用户以一些提示性的文字，用 `@alt` 告诉他这图像是关于什么的，给可能没理解视频或音频的内容的用户以提示。
 
-(For images whose `alt` attributes would introduce redundancy, and for images whose purpose is purely decorative which you cannot immediately use CSS for, use no alternative text, as in `alt=""`.)
+（图像的 `alt` 属性会产生冗余，对于不是在 CSS 中引用的非内容图像，就不要使用 `alt` 描述了。）
 
     <!-- 不推荐 -->
     <img src="spreadsheet.png">
@@ -173,17 +173,19 @@ Providing alternative contents is important for accessibility reasons: A blind u
     <!-- 推荐 -->
     <img src="spreadsheet.png" alt="Spreadsheet screenshot.">
 
-###Separation of concerns###
-      
-**Separate structure from presentation from behavior.**
-      
-Strictly keep structure (markup), presentation (styling), and behavior (scripting) apart, and try to keep the interaction between the three to an absolute minimum.
+###关注点分离###
 
-That is, make sure documents and templates contain only HTML and HTML that is solely serving structural purposes. Move everything presentational into style sheets, and everything behavioral into scripts. 
+**行为、呈现与结构分离**
+
+严格保持结构 （标记），表现 （样式），和行为 （脚本）分离, 并最小化三者的相互作用。
+
+确保文档和模板只包含 HTML 结构，把所有表现都放到样式表里，把所有行为都放到脚本里。
+
+此外，尽量使脚本和样式表在文档与模板中有最小接触面积，即减少外链。
 
 In addition, keep the contact area as small as possible by linking as few style sheets and scripts as possible from documents and templates.
 
-Separating structure from presentation from behavior is important for maintenance reasons. It is always more expensive to change HTML documents and templates than it is to update style sheets and scripts.
+将表现和行为分开维护是很重要的，因为要在 HTML 文档中更改样式和行为花费成本更高。
         
     <!-- 不推荐 -->
     <!DOCTYPE html>
@@ -205,11 +207,11 @@ Separating structure from presentation from behavior is important for maintenanc
 
 ###转义符###
 
-**Do not use entity references.**
+**不要使用转义符**
 
-There is no need to use entity references like `&amp;mdash;`, `&amp;rdquo;`, or `&amp;#x263a;`, assuming the same encoding (UTF-8) is used for files and editors as well as among teams.
+不需要使用类似 `&amp;mdash;` 、 `&amp;rdquo;` 和 `&amp;#x263a;`等的转义符，假定团队之间所用的文件和编辑器是同一编码（UTF-8）。
 
-The only exceptions apply to characters with special meaning in HTML (like `<` and `&amp;`) as well as control or “invisible” characters (like no-break spaces).
+在 HTML 文档中具有特殊含义的字符（例如 `<` 和 `&` )为例外，还有 “不可见” 字符（例如 no-break 空格）。
 
     <!-- 不推荐 -->
     The currency symbol for the Euro is &amp;ldquo;&amp;eur;&amp;rdquo;.
@@ -223,8 +225,8 @@ The only exceptions apply to characters with special meaning in HTML (like `<` a
 
 为了代码文件的体积和可读性，可以考虑省略可选的标签。[HTML5 specification](http://www.whatwg.org/specs/web-apps/current-work/multipage/syntax.html#syntax-tag-omission) 定义了哪些标签是可以被省略的。
 
-（由于。。。）
-(This approach may require a grace period to be established as a wider guideline as it’s significantly different from what web developers are typically taught. For consistency and simplicity reasons it’s best served omitting all optional tags, not just a selection.)
+（这种方法可能需要更精准的规范来制定，众多的开发者对此的观点也都不同。考虑到一致性和简洁的原因，省略所有可选标记是有必要的。）
+
 
     <!-- 不推荐 -->
     <!DOCTYPE html>
@@ -264,15 +266,27 @@ HTML5 默认使用 [`text/css`](http://www.whatwg.org/specs/web-apps/current-wor
     <!-- 推荐 -->
     <script src="//www.google.com/js/gweb/analytics/autotrack.js"></script>
 
+##HTML 代码格式规则##
+
 ##HTML Formatting Rules##
 
+###格式###
+
 ###General formatting###
+
+**每个块元素、列表元素或表格元素都独占一行，每个子元素都相对于父元素进行缩进。**
       
 **Use a new line for every block, list, or table element, and indent every such child element.**
-      
+
+独立元素的样式（as CSS allows elements to assume a different role per display property), 将块元素、列表元素或表格元素都放在新行。
+
 Independent of the styling of an element (as CSS allows elements to assume a different role per `display` property), put every block, list, or table element on a new line.
 
+另外，需要缩进块元素、列表元素或表格元素的子元素。
+
 Also, indent them if they are child elements of a block, list, or table element.
+
+（如果出现了列表项左右空文本节点问题，可以试着将所有的 li 元素都放在一行。 A linter is encouraged to throw a warning instead of an error.)
 
 (If you run into issues around whitespace between list items it’s acceptable to put all `li` elements in one line. A linter is encouraged to throw a warning instead of an error.)
 
@@ -294,7 +308,7 @@ Also, indent them if they are child elements of a block, list, or table element.
           <td>$ 5.00
           <td>$ 4.50
     </table>
-    
+
 ###HTML quotation marks###
       
 **Use double quotation marks for attribute values where necessary.**
@@ -306,18 +320,20 @@ When quoting attribute values, use double (`""`) rather than single quotation ma
     <!-- 推荐 -->
     <a class="maia-button maia-button-secondary">Sign in</a>
 
+##CSS 代码风格规则##
+
 ##CSS Style Rules##
 
-###CSS validity###
-      
-**Use valid CSS where possible.**
-      
+###CSS 校验###
+
+**尽量使用经过校验的 CSS 代码**
+
 Unless dealing with CSS validator bugs or requiring proprietary syntax, use valid CSS code.
 
 Use tools such as the [W3C CSS validator](http://jigsaw.w3.org/css-validator/) to test. Using valid CSS is a measurable baseline quality attribute that allows to spot CSS code that may not have any effect and can be removed, and that ensures proper CSS usage.
 
 ###ID and class naming###
-      
+
 **Use meaningful or generic ID and class names.**
       
 Instead of presentational or cryptic names, always use ID and class names that reflect the purpose of the element in question, or that are otherwise generic.
