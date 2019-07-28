@@ -2,7 +2,7 @@
 
 版本：0.2
 
-英文版：[http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml](http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml)
+英文版：[https://google.github.io/styleguide/htmlcssguide.html](https://google.github.io/styleguide/htmlcssguide.html)
 
 翻译：Romoo Chen ([Twitter](https://twitter.com/romoo))
 
